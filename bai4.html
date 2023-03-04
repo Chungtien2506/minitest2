@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="chay"></p><br>
+<p id ="tong"></p>
+<p id ="enter"></p>
+</body>
+<script>
+    let x = [];
+    addindex();
+    addsoluong();
+    addtong();
+    arrprime();
+    sumPrime();
+    songuyento();
+    sumsnt();
+
+    function addindex() {
+        let number = parseInt(prompt("dodai"));
+        x.length = number;
+    }
+
+    function addsoluong() {
+        for (let i = 0; i < x.length; i++) {
+            x[i] = parseInt(prompt("phantu"));
+        }
+         document.getElementById("chay").innerHTML = ("mang" + x + "<br>")
+    }
+
+    function addtong() {
+        sum = 0;
+        let b=0;
+        for ( let i = 0; i < x.length; i++) {
+            if (x[i] % 2 === 0) {
+                sum += x[i];
+                b++;
+            }
+        }
+        document.getElementById("tong").innerHTML = ( "tong cac so nguyen to" + sum );
+    }
+
+    // function songuyento(n){
+    //     let check = 1 ;
+    //     for (let i = 2; i < n; i++){
+    //         if(n % i === 0){
+    //             check = 0;
+    //             break;
+    //         }
+    //     }
+    //     return check;
+    // }
+    // function sumsnt(){
+    //     for(let i =0;i<x.length;i++){
+    //         if(songuyento(x[i]) === 1){
+    //             sum1 += x[i];
+    //         }
+    //     }
+    // }
+    // document.getElementById("enter").innerHTML=(sum1);
+    function arrprime(n) { // tìm số nguyên tố trong mảng
+        let check = 1;
+        if (n < 2) {
+            check = 0;
+        } else {
+            for (let i = 2; i < n; i++) {
+                if (n % i === 0) {
+                    check = 0;
+                    break;
+                }
+            }
+            return check;
+        }
+    }
+    function sumPrime() { // tính tổng số nguyên tố trong mảng
+        let sum1=0;
+        for (let i = 0; i < x.length; i++) {
+            if (arrprime(x[i]) === 1) {
+                sum1 += x[i];
+            }
+        }
+        document.getElementById("enter").innerHTML=( "tong cac so nguyen to"+sum1);
+    }
+
+
+
+
+</script>
+</html>
